@@ -17,10 +17,10 @@ It's simple.
 ## Future features 
 
 - [x] (Adding support for SQLite)
-- [] (Fixing Swagger error)
-- [] (Adding authentication)
-- [] (Adding UI interface)
-- [] (Adding support for PostgreSQL)
+- [ ] (Fixing Swagger error)
+- [ ] (Adding authentication)
+- [ ] (Adding UI interface)
+- [ ] (Adding support for PostgreSQL)
 
 
 ## Developers
