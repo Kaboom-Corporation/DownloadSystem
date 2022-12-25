@@ -7,11 +7,11 @@ services:
     restart: 'on-failure'
     networks:
       - proxy
-    environment:
-      - DB_HOST
-      - DB_USERNAME
-      - DB_PASSWORD
-      - DB_DATABASE
+    # environment:
+    #   - DB_HOST
+    #   - DB_USERNAME
+    #   - DB_PASSWORD
+    #   - DB_DATABASE
 
     # Traefik labels
     labels:
