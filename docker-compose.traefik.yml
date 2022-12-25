@@ -1,0 +1,27 @@
+version: '3'
+services:
+  webapi:
+    build:
+      context: ./
+      dockerfile: DownloadSystem.WebAPI/Dockerfile
+    restart: 'on-failure'
+    networks:
+      - proxy
+    environment:
+      - DB_HOST
+      - DB_USERNAME
+      - DB_PASSWORD
+      - DB_DATABASE
+
+    # Traefik labels
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.entrypoints=websecure"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.rule=Host(`${URL}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.service=${COMPOSE_PROJECT_NAME}"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}.loadbalancer.server.port=80"
+
+networks:
+  proxy:
+    external: true
